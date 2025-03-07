@@ -1,5 +1,5 @@
 package com.guidev1911.agendamento_notificacao_api.infrastructure.entities;
-import com.guidev1911.agendamento_notificacao_api.infrastructure.enums.statusNotificacaoEnum;
+import com.guidev1911.agendamento_notificacao_api.infrastructure.enums.StatusNotificacaoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,5 +24,11 @@ public class Agendamento {
     private LocalDateTime dataHoraAgendamento;
     private LocalDateTime dataHoraModificacao;
     private String mensagem;
-    private statusNotificacaoEnum statusNotificacaoEnum;
+    private StatusNotificacaoEnum statusNotificacaoEnum;
+
+    @PrePersist
+    private void prePersist() {
+        dataHoraAgendamento = LocalDateTime.now();
+        statusNotificacaoEnum = StatusNotificacaoEnum.AGENDADO;
+    }
 }
