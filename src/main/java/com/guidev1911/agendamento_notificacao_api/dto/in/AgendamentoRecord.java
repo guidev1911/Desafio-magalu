@@ -1,4 +1,4 @@
-package com.guidev1911.agendamento_notificacao_api.controller.dto.in;
+package com.guidev1911.agendamento_notificacao_api.dto.in;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

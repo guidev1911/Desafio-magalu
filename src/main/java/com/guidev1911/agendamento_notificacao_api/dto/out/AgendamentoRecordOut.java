@@ -1,4 +1,4 @@
-package com.guidev1911.agendamento_notificacao_api.controller.dto.out;
+package com.guidev1911.agendamento_notificacao_api.dto.out;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.enums.StatusNotificacaoEnum;

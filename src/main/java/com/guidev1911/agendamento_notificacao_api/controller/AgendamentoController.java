@@ -1,13 +1,10 @@
 package com.guidev1911.agendamento_notificacao_api.controller;
 import com.guidev1911.agendamento_notificacao_api.business.AgendamentoService;
-import com.guidev1911.agendamento_notificacao_api.controller.dto.in.AgendamentoRecord;
-import com.guidev1911.agendamento_notificacao_api.controller.dto.out.AgendamentoRecordOut;
+import com.guidev1911.agendamento_notificacao_api.dto.in.AgendamentoRecord;
+import com.guidev1911.agendamento_notificacao_api.dto.out.AgendamentoRecordOut;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,5 +15,9 @@ public class AgendamentoController {
     @PostMapping
     public ResponseEntity<AgendamentoRecordOut> gravarAgendamentos(@RequestBody AgendamentoRecord agendamento){
         return ResponseEntity.ok(agendamentoService.gravarAgendamento(agendamento));
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<AgendamentoRecordOut> buscarAgendamentoPorId(@PathVariable("id") Long id){
+        return ResponseEntity.ok(agendamentoService.buscarAgendamentoPorId(id));
     }
 }

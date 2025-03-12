@@ -1,7 +1,7 @@
 package com.guidev1911.agendamento_notificacao_api.business.mapper;
 
-import com.guidev1911.agendamento_notificacao_api.controller.dto.in.AgendamentoRecord;
-import com.guidev1911.agendamento_notificacao_api.controller.dto.out.AgendamentoRecordOut;
+import com.guidev1911.agendamento_notificacao_api.dto.in.AgendamentoRecord;
+import com.guidev1911.agendamento_notificacao_api.dto.out.AgendamentoRecordOut;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.entities.Agendamento;
 import org.mapstruct.Mapper;
 
