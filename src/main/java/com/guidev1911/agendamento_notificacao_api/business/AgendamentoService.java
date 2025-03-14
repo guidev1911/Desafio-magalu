@@ -7,27 +7,39 @@ import com.guidev1911.agendamento_notificacao_api.infrastructure.Exception.NotFo
 import com.guidev1911.agendamento_notificacao_api.infrastructure.entities.Agendamento;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.repository.AgendamentoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
 @Service
 public class AgendamentoService {
 
     private final AgendamentoRepository repository;
     private final IAgendamentoMapper agendamentoMapper;
 
-    public AgendamentoRecordOut gravarAgendamento(AgendamentoRecord agendamento){
-         return agendamentoMapper
-                 .paraOut(repository.save(agendamentoMapper.paraEntity(agendamento)));
+    @Autowired
+    public AgendamentoService(AgendamentoRepository repository, IAgendamentoMapper agendamentoMapper) {
+        this.repository = repository;
+        this.agendamentoMapper = agendamentoMapper;
     }
+
+    public AgendamentoRecordOut gravarAgendamento(AgendamentoRecord agendamento){
+        return agendamentoMapper.paraOut(
+                repository.save(
+                        agendamentoMapper.paraEntity(agendamento)));
+    }
+
     public AgendamentoRecordOut buscarAgendamentoPorId(Long id){
         return agendamentoMapper.paraOut(repository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Id não encontrado")));
+                .orElseThrow(() -> new NotFoundException("Id não encontrador")));
     }
+
     public void cancelarAgendamento(Long id){
         Agendamento agendamento = repository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Id não encontrado"));
-
-        repository.save(agendamentoMapper.paraEntityCancelamento(agendamento));
+                .orElseThrow(() -> new NotFoundException("Id não encontrador"));
+        repository.save(
+                agendamentoMapper.paraEntityCancelamento(agendamento)
+        );
     }
+
 }
+
