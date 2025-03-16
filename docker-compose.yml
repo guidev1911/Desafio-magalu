@@ -1,14 +1,14 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  db:
+  postgres:
     image: postgres:17
-    container_name: db_agendamento_container
+    container_name: postgreSQL
     restart: always
     environment:
-      POSTGRES_DB: db_agendamento
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1911
+      POSTGRES_DB: db_agendamento
     ports:
       - "5432:5432"
     volumes:
@@ -33,4 +33,3 @@ services:
 
 volumes:
   postgres_data:
-
