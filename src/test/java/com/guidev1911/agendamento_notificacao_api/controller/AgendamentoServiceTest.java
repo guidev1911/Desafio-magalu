@@ -2,8 +2,8 @@ package com.guidev1911.agendamento_notificacao_api.controller;
 
 import com.guidev1911.agendamento_notificacao_api.business.AgendamentoService;
 import com.guidev1911.agendamento_notificacao_api.business.mapper.IAgendamentoMapper;
-import com.guidev1911.agendamento_notificacao_api.dto.in.AgendamentoRecord;
-import com.guidev1911.agendamento_notificacao_api.dto.out.AgendamentoRecordOut;
+import com.guidev1911.agendamento_notificacao_api.controller.dto.in.AgendamentoRecord;
+import com.guidev1911.agendamento_notificacao_api.controller.dto.out.AgendamentoRecordOut;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.entities.Agendamento;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.enums.StatusNotificacaoEnum;
 import com.guidev1911.agendamento_notificacao_api.infrastructure.repository.AgendamentoRepository;
